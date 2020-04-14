@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class InitServiceImpl implements InitService {
 
-    @Value("${starting.url}")
+    @Value("${base.url}")
     private String startingUrl;
 
     @Autowired
