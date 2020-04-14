@@ -20,14 +20,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class InitServiceImpl implements InitService {
 
-    @Value("${location.url}")
-    private String locationUrl;
-
-    @Value("${episode.url}")
-    private String episodeUrl;
-
-    @Value("${character.url}")
-    private String characterUrl;
+    @Value("${starting.url}")
+    private String startingUrl;
 
     @Autowired
     private HttpConnection httpConnection;
@@ -44,9 +38,9 @@ public class InitServiceImpl implements InitService {
     @Override
     @PostConstruct
     public void initializeDatabase() {
-        addLocation(locationUrl);
-        addEpisodes(episodeUrl);
-        addCharacters(characterUrl);
+        addLocation(startingUrl + "location/");
+        addEpisodes(startingUrl + "episode/");
+        addCharacters(startingUrl + "character/");
     }
 
     private List<Location> addLocation(String url) {
